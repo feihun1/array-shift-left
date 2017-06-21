@@ -10,7 +10,6 @@ output: defghabc
 #include <cmath>
 #include <math.h>
 int gcd(int a, int b);
-//求两个数的最大公因数
 int gcd(int a, int b)
 {
 	while (a != b)
@@ -31,12 +30,10 @@ int main()
 	int n =8;
 	std::cin >> rotdish;
 	std::cin.get();
-	//循环次数为两数的最大公因数
 	for (i = 0; i < gcd(rotdish, n); i++)
 	{
 		t = ch[i];
 		j = i;
-		//循环结束的标志是k==i
 		while (1)
 		{
 			k = j + rotdish;
