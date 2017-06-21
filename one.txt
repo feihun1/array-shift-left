@@ -1,0 +1,55 @@
+/*
+for example
+input: abcdefgh
+	3
+output: defghabc
+*/
+//a peculiar way:
+
+#include <iostream>
+#include <cmath>
+#include <math.h>
+int gcd(int a, int b);
+//求两个数的最大公因数
+int gcd(int a, int b)
+{
+	while (a != b)
+	{
+		if (a > b)
+			a -= b;
+		else
+			b -= a;
+	}
+	return a;
+}
+int main()
+{
+	char ch[10];
+	std::cin >> ch;
+	int i = 0,rotdish;
+	int t,j,k;
+	int n =8;
+	std::cin >> rotdish;
+	std::cin.get();
+	//循环次数为两数的最大公因数
+	for (i = 0; i < gcd(rotdish, n); i++)
+	{
+		t = ch[i];
+		j = i;
+		//循环结束的标志是k==i
+		while (1)
+		{
+			k = j + rotdish;
+			if (k >= n)
+				k -= n;
+			if (k == i)
+				break;
+			ch[j] = ch[k];
+			j = k;
+		}
+		ch[j] = t;
+	}
+	std::cout << ch;
+	std::cin.get();
+	return 0;
+}
